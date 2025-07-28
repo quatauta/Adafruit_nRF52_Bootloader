@@ -55,5 +55,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.board }}/${{ matrix.board }}_bootloader-*.zip
+        name: ${{ matrix.board }}
         path: _bin/${{ matrix.board }}/${{ matrix.board }}_bootloader-*.zip
