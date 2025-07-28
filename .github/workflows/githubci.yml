@@ -21,7 +21,7 @@ jobs:
         id: set-matrix
         working-directory: src/boards
         run: |
-          MATRIX_JSON=$(ls -d */ | sed 's/\/$//' | jq -R -s -c 'split("\n")[:-1]')
+          MATRIX_JSON=$(ls -d nice*/ | sed 's/\/$//' | jq -R -s -c 'split("\n")[:-1]')
           echo "matrix=$MATRIX_JSON"
           echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
 
@@ -56,7 +56,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.board }}
-        path: _bin/${{ matrix.board }}
+        path: _bin/${{ matrix.board }}/${{ matrix.board }}_bootloader-*.zip
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v1
