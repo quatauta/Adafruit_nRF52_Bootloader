@@ -2,7 +2,7 @@ name: Build
 
 on:
   pull_request:
-  push:
+  # push:
   repository_dispatch:
   release:
     types:
